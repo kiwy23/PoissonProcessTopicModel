@@ -27,7 +27,6 @@ if __name__ == "__main__":
     once accepted, follow the instructions there to download the pretrained llama model
     '''
     # initialize language model for contextual embedding
-    # model_name = 'llama'
     model_name = "bert"
     if model_name == "bert":
         embedding_model = TransformerWordEmbeddings("bert-base-uncased")
