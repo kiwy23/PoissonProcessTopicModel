@@ -6,6 +6,7 @@ import os
 import re
 import numpy as np
 import pandas as pd
+from tqdm import tqdm
 
 import nltk
 from nltk.corpus import stopwords
@@ -16,11 +17,7 @@ snowball = SnowballStemmer("english")
 
 from flair.embeddings import TransformerWordEmbeddings
 from flair.data import Sentence, Token
-# please comment out the following line if you don't have the llama model ready
-from PPTM.llama_interface import LLaMAEmbeddings
 
-from tqdm import tqdm
-import csv
 from scipy.io import mmread
 
 if __name__ == "__main__":
@@ -35,8 +32,6 @@ if __name__ == "__main__":
     if model_name == "bert":
         embedding_model = TransformerWordEmbeddings("bert-base-uncased")
     # please comment out the following two lines if you don't have the llama model ready
-    elif model_name == "llama":
-        embedding_model = LLaMAEmbeddings(model_name="meta-llama/Meta-Llama-3.1-8B")
     else:
         raise NotImplementedError("language model not supported yet")
 
